@@ -118,6 +118,26 @@ void PRINT_MESG_UART(const char * format, ... );
 #endif /* USE_STM32L4XX_NUCLEO */
 
 
+#ifdef USE_STM32L1XX_NUCLEO
+  /* Definition for USARTx clock resources */
+  #define USARTx                           USART2
+  #define USARTx_CLK_ENABLE()              __USART2_CLK_ENABLE();
+  #define USARTx_RX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE()
+  #define USARTx_TX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE() 
+  #define USARTx_FORCE_RESET()             __USART2_FORCE_RESET()
+  #define USARTx_RELEASE_RESET()           __USART2_RELEASE_RESET()
+  /* Definition for USARTx Pins */
+  #define USARTx_TX_PIN                    GPIO_PIN_2
+  #define USARTx_TX_GPIO_PORT              GPIOA  
+  #define USARTx_TX_AF                     GPIO_AF7_USART2
+  #define USARTx_RX_PIN                    GPIO_PIN_3
+  #define USARTx_RX_GPIO_PORT              GPIOA 
+  #define USARTx_RX_AF                     GPIO_AF7_USART2
+  /* Definition for USARTx's NVIC */
+  #define USARTx_IRQn                      USART2_IRQn
+  #define USARTx_IRQHandler                USART2_IRQHandler
+#endif /* USE_STM32L0XX_NUCLEO */
+
 /* Size of Transmission buffer */
 #define TXSTARTMESSAGESIZE                 (COUNTOF(aTxStartMessage) - 1)
 #define TXENDMESSAGESIZE                   (COUNTOF(aTxEndMessage) - 1)

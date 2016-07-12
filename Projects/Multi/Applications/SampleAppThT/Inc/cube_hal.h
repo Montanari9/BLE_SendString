@@ -60,6 +60,13 @@
   #include "stm32l4xx_hal_conf.h"
 #endif
 
+#ifdef USE_STM32L1XX_NUCLEO
+  #include "stm32l1xx_hal.h"
+  #include "stm32l1xx_nucleo.h"
+  #include "stm32l1xx_nucleo_bluenrg.h"
+  #include "stm32l1xx_hal_conf.h"
+#endif
+
 void SystemClock_Config(void);
 
 #endif //_CUBE_HAL_H_
